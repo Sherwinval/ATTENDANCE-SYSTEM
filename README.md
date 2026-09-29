@@ -1,4 +1,4 @@
-# ATTENDANCESIPP
+# ATTENDANCE SYSTEM
 
 A full-stack attendance system built with Vite, React, Tailwind CSS, Express, and MongoDB.
 
