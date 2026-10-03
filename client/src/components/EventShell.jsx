@@ -233,7 +233,7 @@ export default function EventShell({
                   SEASON 4
                 </span>
                 <span className="text-[9px] font-mono text-blue-200 opacity-80 hidden md:inline">
-                  CLASS OF 2025 | IMPRINT/S4/2025
+                  CLASS OF 2026 | IMPRINT/S4/2026
                 </span>
               </div>
             </div>
@@ -272,7 +272,7 @@ export default function EventShell({
             </div>
             <div className="hidden lg:flex flex-col text-[10px] font-mono text-blue-100 text-right">
               <span className="font-bold uppercase tracking-wider">Computer Programming Society</span>
-              <span className="opacity-75">All Rights Reserved © 2025</span>
+              <span className="opacity-75">All Rights Reserved © 2026</span>
             </div>
           </div>
         </div>
