@@ -86,13 +86,13 @@ export default function RegisterPage() {
           
           {/* Error Banner */}
           {error && (
-            <div className="feedback-box feedback-box-error p-3.5 sm:p-4 border-l-4 border-l-rose-500 rounded-xl">
+            <div className="feedback-box feedback-box-error p-3.5 sm:p-4 border-l-4 border-l-rose-500 bg-rose-950/70 border-rose-500/40 text-rose-200 rounded-xl shadow-md">
               <svg className="w-5 h-5 flex-shrink-0 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
               <div className="flex-1">
                 <p className="font-mono text-xs uppercase text-rose-400 font-bold">Validation Error</p>
-                <p className="text-sm font-medium text-slate-200 mt-0.5">{error}</p>
+                <p className="text-sm font-medium text-rose-100 mt-0.5">{error}</p>
               </div>
             </div>
           )}
@@ -100,12 +100,12 @@ export default function RegisterPage() {
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="field-label text-xs sm:text-sm" htmlFor="firstName">
+                <label className="field-label text-xs sm:text-sm text-slate-200" htmlFor="firstName">
                   FIRST NAME
                 </label>
                 <input
                   autoFocus
-                  className="field !h-12 !text-left !px-4 text-base font-sans font-medium"
+                  className="field !h-12 !text-left !px-4 text-base font-sans font-medium text-white !bg-[#13203c] !border-slate-600 focus:!border-blue-500 focus:!bg-[#18284c]"
                   id="firstName"
                   onChange={(event) => updateField('firstName', event.target.value)}
                   placeholder="Juan"
@@ -114,11 +114,11 @@ export default function RegisterPage() {
               </div>
 
               <div>
-                <label className="field-label text-xs sm:text-sm" htmlFor="lastName">
+                <label className="field-label text-xs sm:text-sm text-slate-200" htmlFor="lastName">
                   LAST NAME
                 </label>
                 <input
-                  className="field !h-12 !text-left !px-4 text-base font-sans font-medium"
+                  className="field !h-12 !text-left !px-4 text-base font-sans font-medium text-white !bg-[#13203c] !border-slate-600 focus:!border-blue-500 focus:!bg-[#18284c]"
                   id="lastName"
                   onChange={(event) => updateField('lastName', event.target.value)}
                   placeholder="Dela Cruz"
@@ -129,7 +129,7 @@ export default function RegisterPage() {
 
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label className="field-label mb-0 text-xs sm:text-sm" htmlFor="studentId">
+                <label className="field-label mb-0 text-xs sm:text-sm text-slate-200" htmlFor="studentId">
                   STUDENT ID NUMBER
                 </label>
                 <span className="font-mono text-xs text-slate-400">
@@ -137,7 +137,7 @@ export default function RegisterPage() {
                 </span>
               </div>
               <input
-                className="field !h-14 sm:!h-15 text-2xl sm:text-3xl tracking-[0.22em] font-mono placeholder:text-slate-600 placeholder:tracking-normal"
+                className="field !h-14 sm:!h-15 text-2xl sm:text-3xl tracking-[0.22em] font-mono placeholder:text-slate-500 placeholder:tracking-normal text-white !bg-[#13203c] !border-slate-600 focus:!border-blue-500 focus:!bg-[#18284c]"
                 id="studentId"
                 inputMode="numeric"
                 maxLength={10}
@@ -165,7 +165,7 @@ export default function RegisterPage() {
                   </>
                 ) : (
                   <>
-                    <svg className="w-5 h-5 text-emerald-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
                     </svg>
                     <span>Save Profile</span>
@@ -173,17 +173,17 @@ export default function RegisterPage() {
                 )}
               </button>
 
-              <Link className="button-secondary !h-13 sm:!h-14 text-base sm:text-lg font-bold" to="/login">
+              <Link className="button-secondary !bg-slate-800 !text-slate-200 hover:!bg-slate-700 hover:!text-white !border-slate-700 !h-13 sm:!h-14 text-base sm:text-lg font-bold" to="/login">
                 Cancel
               </Link>
             </div>
           </form>
 
-          <div className="pt-3 border-t border-white/[0.08] text-center">
+          <div className="pt-3 border-t border-slate-700/60 text-center">
             <p className="text-sm text-slate-400">
               Already registered?{' '}
               <Link 
-                className="text-cyan-400 hover:text-cyan-300 font-semibold underline underline-offset-4 decoration-cyan-500/40 hover:decoration-cyan-400 transition ml-1" 
+                className="text-cyan-400 hover:text-cyan-300 font-bold underline underline-offset-4 decoration-cyan-500/40 hover:decoration-cyan-300 transition ml-1" 
                 to="/login"
               >
                 Return to Check-In
@@ -194,4 +194,4 @@ export default function RegisterPage() {
       </ActionPanel>
     </EventShell>
   );
-}
+}

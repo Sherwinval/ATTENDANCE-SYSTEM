@@ -82,28 +82,28 @@ export default function LogoutPage() {
   return (
     <EventShell
       badge="Computer Programming Society"
-      intro="Push your session updates and check out of imPRINT 4.0."
+      intro="Log your attendance push for imPRINT 4.0: The Next Commit."
       panelClassName="mx-auto w-full max-w-4xl"
       title="imPRINT 4.0: The Next Commit"
     >
       <ActionPanel
         footer="git push origin main --checkout"
         title="Participant Check-Out"
-        subtitle="Confirm your departure by entering or scanning your Student ID."
+        subtitle="Enter or scan your Student ID to push your event departure."
       >
         <div className="w-full max-w-2xl mx-auto space-y-5">
           
           {/* Success Banner */}
           {successData && (
-            <div className="feedback-box feedback-box-success flex-col items-start gap-1.5 p-4 sm:p-5 border-l-4 border-l-cyan-500 rounded-xl bg-cyan-950/20 border-cyan-500/30 text-cyan-300">
+            <div className="feedback-box feedback-box-success flex-col items-start gap-1.5 p-4 sm:p-5 border-l-4 border-l-amber-500 bg-amber-950/70 border-amber-500/40 text-amber-200 rounded-xl animate-fade-in shadow-md">
               <div className="flex items-center justify-between w-full">
-                <div className="flex items-center gap-2 text-cyan-400 font-bold text-xs sm:text-sm tracking-wide font-mono">
-                  <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <div className="flex items-center gap-2 text-amber-400 font-bold text-xs sm:text-sm tracking-wide font-mono">
+                  <svg className="w-5 h-5 flex-shrink-0 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                   </svg>
-                  <span>CHANGES PUSHED • CHECK-OUT RECORDED</span>
+                  <span>PUSH RECORDED • CHECK-OUT OK</span>
                 </div>
-                <span className="font-mono text-xs text-cyan-400/80 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+                <span className="font-mono text-xs text-amber-300 bg-amber-500/20 px-2 py-0.5 rounded border border-amber-500/30 font-semibold">
                   {successData.time}
                 </span>
               </div>
@@ -111,8 +111,8 @@ export default function LogoutPage() {
                 <p className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                   Goodbye, {successData.name}!
                 </p>
-                <p className="font-mono text-xs sm:text-sm text-cyan-300/80 mt-0.5">
-                  ID: <span className="font-bold text-white">{successData.studentId}</span> • Session safely closed
+                <p className="font-mono text-xs sm:text-sm text-amber-300 mt-0.5">
+                  ID: <span className="font-bold text-white">{successData.studentId}</span> • Session Completed
                 </p>
               </div>
             </div>
@@ -120,13 +120,13 @@ export default function LogoutPage() {
 
           {/* Error Banner */}
           {error && (
-            <div className="feedback-box feedback-box-error p-3.5 sm:p-4 border-l-4 border-l-rose-500 rounded-xl">
+            <div className="feedback-box feedback-box-error p-3.5 sm:p-4 border-l-4 border-l-rose-500 bg-rose-950/70 border-rose-500/40 text-rose-200 rounded-xl shadow-md">
               <svg className="w-5 h-5 flex-shrink-0 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
               <div className="flex-1">
-                <p className="font-mono text-xs uppercase text-rose-400 font-bold">Push Rejected</p>
-                <p className="text-sm font-medium text-slate-200 mt-0.5">{error}</p>
+                <p className="font-mono text-xs uppercase text-rose-400 font-bold">Push Error</p>
+                <p className="text-sm font-medium text-rose-100 mt-0.5">{error}</p>
               </div>
             </div>
           )}
@@ -134,7 +134,7 @@ export default function LogoutPage() {
           <form className="space-y-5" onSubmit={handleSubmit}>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label className="field-label mb-0 text-xs sm:text-sm" htmlFor="studentId">
+                <label className="field-label mb-0 text-xs sm:text-sm text-slate-200" htmlFor="studentId">
                   STUDENT ID NUMBER
                 </label>
                 <span className="font-mono text-xs text-slate-400">
@@ -146,7 +146,7 @@ export default function LogoutPage() {
                 <input
                   ref={inputRef}
                   autoComplete="off"
-                  className="field !h-14 sm:!h-16 text-2xl sm:text-3xl tracking-[0.22em] font-mono placeholder:text-slate-600 placeholder:tracking-normal"
+                  className="field !h-14 sm:!h-16 text-2xl sm:text-3xl tracking-[0.22em] font-mono placeholder:text-slate-500 placeholder:tracking-normal text-white !bg-[#13203c] !border-slate-600 focus:!border-amber-500 focus:!bg-[#18284c]"
                   id="studentId"
                   inputMode="numeric"
                   maxLength={10}
@@ -174,12 +174,12 @@ export default function LogoutPage() {
                 )}
               </div>
               <p className="text-xs text-slate-400 mt-2 text-center">
-                Press <kbd className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-slate-300">Enter ↵</kbd> or click button to check out
+                Press <kbd className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-slate-300">Enter ↵</kbd> or click button to push departure
               </p>
             </div>
 
             <button 
-              className="button-primary !h-13 sm:!h-14 text-base sm:text-lg font-bold !bg-gradient-to-r !from-cyan-600 !to-blue-600 hover:!from-cyan-500 hover:!to-blue-500 !shadow-cyan-900/40" 
+              className="button-primary !bg-gradient-to-r !from-amber-600 !to-amber-700 hover:!from-amber-500 hover:!to-amber-600 !h-13 sm:!h-14 text-base sm:text-lg font-bold !shadow-amber-900/40" 
               disabled={isSubmitting || !studentId.trim()} 
               type="submit"
             >
@@ -193,24 +193,24 @@ export default function LogoutPage() {
                 </>
               ) : (
                 <>
-                  <svg className="w-5 h-5 text-cyan-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                   </svg>
-                  <span>Confirm Check-Out (Push)</span>
+                  <span>Push Check-Out</span>
                 </>
               )}
             </button>
           </form>
 
-          {/* Quick Registration Link */}
-          <div className="pt-3 border-t border-white/[0.08] text-center">
+          {/* Quick Link */}
+          <div className="pt-3 border-t border-slate-700/60 text-center">
             <p className="text-sm text-slate-400">
-              Need to check in instead?{' '}
+              Need to register first?{' '}
               <Link 
-                className="text-emerald-400 hover:text-emerald-300 font-semibold underline underline-offset-4 decoration-emerald-500/40 hover:decoration-emerald-400 transition ml-1" 
-                to="/login"
+                className="text-amber-400 hover:text-amber-300 font-bold underline underline-offset-4 decoration-amber-500/40 hover:decoration-amber-300 transition ml-1" 
+                to="/register"
               >
-                Go to Check-In
+                Register Identity (git config)
               </Link>
             </p>
           </div>

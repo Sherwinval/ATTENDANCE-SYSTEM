@@ -95,15 +95,15 @@ export default function LoginPage() {
           
           {/* Success Banner */}
           {successData && (
-            <div className="feedback-box feedback-box-success flex-col items-start gap-1.5 p-4 sm:p-5 border-l-4 border-l-emerald-500 rounded-xl animate-fade-in">
+            <div className="feedback-box feedback-box-success flex-col items-start gap-1.5 p-4 sm:p-5 border-l-4 border-l-emerald-500 bg-emerald-950/70 border-emerald-500/40 text-emerald-200 rounded-xl animate-fade-in shadow-md">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs sm:text-sm tracking-wide font-mono">
-                  <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5 flex-shrink-0 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                   </svg>
                   <span>COMMIT RECORDED • CHECK-IN OK</span>
                 </div>
-                <span className="font-mono text-xs text-emerald-400/80 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                <span className="font-mono text-xs text-emerald-300 bg-emerald-500/20 px-2 py-0.5 rounded border border-emerald-500/30 font-semibold">
                   {successData.time}
                 </span>
               </div>
@@ -111,7 +111,7 @@ export default function LoginPage() {
                 <p className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                   Welcome, {successData.name}!
                 </p>
-                <p className="font-mono text-xs sm:text-sm text-emerald-300/80 mt-0.5">
+                <p className="font-mono text-xs sm:text-sm text-emerald-300 mt-0.5">
                   ID: <span className="font-bold text-white">{successData.studentId}</span> • Session Staged
                 </p>
               </div>
@@ -120,13 +120,13 @@ export default function LoginPage() {
 
           {/* Error Banner */}
           {error && (
-            <div className="feedback-box feedback-box-error p-3.5 sm:p-4 border-l-4 border-l-rose-500 rounded-xl">
+            <div className="feedback-box feedback-box-error p-3.5 sm:p-4 border-l-4 border-l-rose-500 bg-rose-950/70 border-rose-500/40 text-rose-200 rounded-xl shadow-md">
               <svg className="w-5 h-5 flex-shrink-0 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
               <div className="flex-1">
                 <p className="font-mono text-xs uppercase text-rose-400 font-bold">Staging Error</p>
-                <p className="text-sm font-medium text-slate-200 mt-0.5">{error}</p>
+                <p className="text-sm font-medium text-rose-100 mt-0.5">{error}</p>
               </div>
             </div>
           )}
@@ -134,7 +134,7 @@ export default function LoginPage() {
           <form className="space-y-5" onSubmit={handleSubmit}>
             <div>
               <div className="flex items-center justify-between mb-2">
-                <label className="field-label mb-0 text-xs sm:text-sm" htmlFor="studentId">
+                <label className="field-label mb-0 text-xs sm:text-sm text-slate-200" htmlFor="studentId">
                   STUDENT ID NUMBER
                 </label>
                 <span className="font-mono text-xs text-slate-400">
@@ -146,7 +146,7 @@ export default function LoginPage() {
                 <input
                   ref={inputRef}
                   autoComplete="off"
-                  className="field !h-14 sm:!h-16 text-2xl sm:text-3xl tracking-[0.22em] font-mono placeholder:text-slate-600 placeholder:tracking-normal"
+                  className="field !h-14 sm:!h-16 text-2xl sm:text-3xl tracking-[0.22em] font-mono placeholder:text-slate-500 placeholder:tracking-normal text-white !bg-[#13203c] !border-slate-600 focus:!border-blue-500 focus:!bg-[#18284c]"
                   id="studentId"
                   inputMode="numeric"
                   maxLength={10}
@@ -193,7 +193,7 @@ export default function LoginPage() {
                 </>
               ) : (
                 <>
-                  <svg className="w-5 h-5 text-emerald-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
                   </svg>
                   <span>Commit Check-In</span>
@@ -203,11 +203,11 @@ export default function LoginPage() {
           </form>
 
           {/* Quick Registration Link */}
-          <div className="pt-3 border-t border-white/[0.08] text-center">
+          <div className="pt-3 border-t border-slate-700/60 text-center">
             <p className="text-sm text-slate-400">
               Not registered in the database?{' '}
               <Link 
-                className="text-cyan-400 hover:text-cyan-300 font-semibold underline underline-offset-4 decoration-cyan-500/40 hover:decoration-cyan-400 transition ml-1" 
+                className="text-cyan-400 hover:text-cyan-300 font-bold underline underline-offset-4 decoration-cyan-500/40 hover:decoration-cyan-300 transition ml-1" 
                 to="/register"
               >
                 Register Identity (git config)
