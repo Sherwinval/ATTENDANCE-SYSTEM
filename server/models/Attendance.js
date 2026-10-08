@@ -17,6 +17,11 @@ const attendanceSchema = new mongoose.Schema(
       enum: ['login', 'logout'],
       required: true,
     },
+    remarks: {
+      type: String,
+      default: '',
+      trim: true,
+    },
     recordedAt: {
       type: Date,
       default: Date.now,

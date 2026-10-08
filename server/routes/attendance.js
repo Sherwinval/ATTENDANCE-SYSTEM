@@ -5,6 +5,22 @@ import Participant from '../models/Participant.js';
 const router = Router();
 const STUDENT_ID_REGEX = /^\d{4}-\d{5}$/;
 
+export function getAttendanceRemark(type, value = new Date()) {
+  if (type !== 'login') {
+    return '';
+  }
+
+  const date = value instanceof Date ? value : new Date(value);
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+
+  if (hours > 12 || (hours === 12 && minutes > 45)) {
+    return 'Late';
+  }
+
+  return 'On Time';
+}
+
 async function recordAttendance(req, res, next, type) {
   try {
     const studentId = req.body.studentId?.trim();
@@ -45,16 +61,22 @@ async function recordAttendance(req, res, next, type) {
       }
     }
 
+    const recordedAt = new Date();
+    const remarks = getAttendanceRemark(type, recordedAt);
+
     const attendance = await Attendance.create({
       participant: participant._id,
       studentId,
       type,
+      remarks,
+      recordedAt,
     });
 
     return res.status(201).json({
       message: `Attendance ${type} recorded.`,
       attendanceId: attendance.id,
       recordedAt: attendance.recordedAt,
+      remarks: attendance.remarks,
     });
   } catch (error) {
     return next(error);
@@ -85,6 +107,7 @@ router.get('/attendance', async (req, res, next) => {
         type: record.type,
         studentId: record.studentId,
         recordedAt: record.recordedAt,
+        remarks: record.remarks || '',
         participant: record.participant
           ? {
               firstName: record.participant.firstName,

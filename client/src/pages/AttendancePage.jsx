@@ -299,7 +299,7 @@ export default function AttendancePage() {
                     </div>
 
                     {/* Event Action Badge */}
-                    <div className="flex items-center">
+                    <div className="flex items-center gap-2">
                       {isLogin ? (
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 font-mono text-xs font-bold tracking-wider uppercase">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
@@ -309,6 +309,13 @@ export default function AttendancePage() {
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/25 font-mono text-xs font-bold tracking-wider uppercase">
                           <span className="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block"></span>
                           Check-Out
+                        </span>
+                      )}
+
+                      {record.remarks === 'Late' && (
+                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-rose-500/10 text-rose-300 border border-rose-500/30 font-mono text-[10px] font-bold uppercase tracking-wider">
+                          <span className="w-1.5 h-1.5 rounded-full bg-rose-400 inline-block"></span>
+                          Late
                         </span>
                       )}
                     </div>
